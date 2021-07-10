@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <title>MY WWE UNIVERSE</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav id="nav">
+    <ul>
+  <li><a class="active" href="index.html">HOME</a></li>
+  <li><a href="matches.html">MATCHES & RESULTS</a></li>
+  <li><a href="roaster.html">ROSTER</a></li>
+  <li><a href="shows.html">SHOWS</a></li>
+  <li><a href="championship.html">CHAMPIONSHIP HISTORY</a></li>
+  <li><a href="superstars.html">SUPERSTARS STATS</a></li>
+  <li><a href="draft.html">DRAFT</a></li>
+  
+</ul>
+    
+  </nav>
+  <div id="superstars">
+        <img src="https://www.wwe.com/a/i/wwe_logo200w.svg" style="display: block; margin-left: auto;margin-right: auto; width: 10% ">
+    <h1 id="superstars" style="text-align: center; color: white;">WWE DRAFT</h1>
+    
+  </div>
+  <div>
+    <h2 style="color: white;">Available Superstars For  DRAFT</h2>
+    <table style="margin-top :10px; margin-bottom: 15px;">
+      <tr class="">
+        <td>Sin Cara</td><td></td><td>      </td><td>       </td><td>     </td>
+      </tr>
+      <tr>
+        <td>     </td><td>       </td><td>       </td><td>       </td><td>    </td>
+      </tr>
+    </table>
+    
+  </div>
+<div class="ht" style="color: white; margin-bottom:; ">Enter Superstars for DRAFT</div>
+<table width="100%">
+<tr><td><div><textarea id="id_text" style="width:99%" rows="10" cols="40" name="text"></textarea></div></td></tr>
+<tr></tr>
+<tr><td><Button id ="submitNew" onclick = "return showload()">Pick The Superstar</Button></td></tr>
+</table>
+
+<style>
+
+
+/* The Modal (background) */
+.modalonsubmit {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  
+  background-color: rgba(255,255,255,0.9); /* Black w/ opacity */
+}
+
+
+
+#randomname {
+
+  text-transform: uppercase;
+  color: tomato;
+  z-index: 99;
+  position: absolute;
+    
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    margin-top: -35px;
+    margin-left: -60px;
+  
+  
+}
+
+/*#randomname p{
+    text-align: center;
+   
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+}*/
+/* Center the loader */
+#loader {
+  
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  border-left: 16px solid yellow;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  width: 240px;
+  height: 240px;
+  margin: -150px 0 0 -150px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+</style>
+<div id="modalonsubmit" class="modalonsubmit">
+
+  
+    
+    <div id="randomname">
+    
+  </div><div id="loader"></div></div>
+<script>
+
+function showload() {
+  document.getElementById("modalonsubmit").style.display = "block";
+ 
+var textArea = document.getElementById("id_text");
+var s = textArea.value.split("\n");
+s  = s.filter(function (el) {
+  return el != '';
+});
+
+var x = document.getElementById('randomname');
+var y = document.getElementById('result');
+var i = 0;
+var itime = 200;
+if (s.length < 2){
+  y.innerHTML ='<p style="color:red";>Please input more than 1 names</p>';
+  document.getElementById("modalonsubmit").style.display ="none";
+  return false;
+}
+(function loop() {
+    console.log(i);
+    x.innerHTML = s[i];
+    if (++i < s.length) {
+        setTimeout(loop, 200);
+        if (i == s.length-1)
+        {
+        i=0;
+        }
+    }
+})();
+  setTimeout(function() {
+    if(typeof(Storage) !== "undefined"){localStorage.setItem("randomnamepicker",document.getElementById("id_text").value )}
+      document.getElementById("modalonsubmit").style.display ="none";
+      i=getRndInteger(0,s.length-1);
+      y.innerHTML ='<div class=t2><h2 style="color: white; font-weight: bold; font-size: 15px;">RAW Picks</h2></div><p class="glow">'+s[i]+'</p><br><br>';
+    }, 3000);  // 3 seconds
+
+    return false;
+}
+
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+function readfileFunction(){
+  var file = document.getElementById("myFile").files[0];
+  var reader = new FileReader();
+  reader.onload = function (e) {
+    var textArea = document.getElementById("id_text");
+    textArea.value = e.target.result;
+};
+reader.readAsText(file);
+if(typeof(Storage) !== "undefined"){localStorage.setItem("randomnamepicker",document.getElementById("id_text").value )}
+}
+
+</script>
+
+  </div>
+<style>
+.glow {
+  
+  color:blue;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+  text-align:center;word-wrap: break-word;
+  font-size:64px;
+}
+
+@-webkit-keyframes glow {
+  from {
+     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #FFD662, 0 0 40px #DD4132, 0 0 50px #DD4132, 0 0 60px #FFD662, 0 0 70px #DD4132;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #6B5B95, 0 0 50px #6B5B95, 0 0 60px #6B5B95, 0 0 70px #6B5B95, 0 0 80px #6B5B95;
+  }
+}
+    </style>
+    
+<div id ="result"></div>
+
+
+
+<div class=ma20></div>
+
+
+
+
+
+
+
+
+
+
+</div></div></div>
+
+
+</body></html>
+
+

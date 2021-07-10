@@ -1,0 +1,320 @@
+/*body */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+body{
+  /*background-image: url("images/wp1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;*/
+  background-color: #333;
+  font-family: 'Heebo', sans-serif;
+}
+/*navbar */
+nav {
+  height: 48px;
+  overflow: hidden;
+  position: fixed; 
+  top: 0; 
+  width: 100%;
+  z-index: 0;
+
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #001;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #04AA6D;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+/*roster page */
+#superstars{
+  margin-top: 45px;
+}
+#superstars h1{
+  text-align: center;
+
+}
+.image{
+  margin-left: 10px;
+  margin-right: auto;
+}
+.image img{
+
+  max-width: 250px;
+  height: 250px;
+  margin: 5px;
+  background: red ;
+  overflow: auto;
+}
+/*raw roster */
+
+.images{
+  max-width: 1200px;
+  margin: auto;
+  background: transparent;
+  overflow: auto;
+}
+.gallery{
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 290px;
+}
+.gallery img{
+  width: 100%;
+  height: 400px;
+}
+
+.desc{
+  padding: 15px;
+  text-align: center;
+  color: white;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  color: white;
+}
+
+/*homepage */
+#newsresults{
+  margin-top: 70px;
+}
+
+.column1 {
+  float: left;
+  width: 13.33%;
+  padding: 10px;
+  height: 120px; 
+}
+.column1 img{
+  width: 100%;
+  height: 110px;
+}
+.column2 {
+  float: left;
+  width: 60.33%;
+  padding: 0px;
+  height: 450px; 
+}
+.column2 img{
+  width: 100%;
+  height: 450px;
+}
+.column3 {
+  float: left;
+  width: 26.33%;
+  padding: 10px;
+  height: 450px;
+  font-size: 20px;
+  color: white; 
+}
+
+/*othernews*/
+#othernews{
+  margin-top:25px; 
+  
+}
+.column4 {
+  float: left;
+  width: 31.33%;
+  margin-right: 39px;
+  padding: 0.1px;
+  padding-top: 9px;
+  height: 300px; 
+}
+
+
+.column4 img{
+  width: 100%;
+  height: 290px;
+}
+.column5 {
+  float: left;
+  width: 31.33%;
+  padding: 10px;
+  height: 300px; 
+}
+.column5 img{
+  width: 100%;
+  height: 290px;
+}
+.column6 {
+  float: right;
+  width: 31.33%;
+  margin-left: 15px;
+  padding: 0.1px;
+  padding-top: 7px; 
+  height: 300px; 
+}
+.column6 img{
+  width: 100%;
+  height: 290px;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#weeklynews{
+  margin-top: 120px;
+  margin-bottom: 10px;
+
+}
+
+.columnbelow{
+ display: inline-flex;
+ width: 43.33%;
+ margin-bottom: 40px;
+ padding: 10px;
+ height: 300px;
+
+}
+.columnbelow img{
+  width: 100%;
+  height: 290px;
+}
+
+
+/*footer*/
+.footer{
+  background: rgb(75,78,133);
+  height: 500px;
+}
+
+
+
+
+.column7{
+  float: left;
+  width: 23%;
+  margin-right: 20px;
+  padding: 10px;
+  padding-top: 9px;
+  height: 350px; 
+
+}
+.column7 img{
+  width: 100%;
+  height: 350px;
+
+}
+.column8{
+  float: left;
+  width: 23%;
+  margin-right: 32px;
+  padding: 0.1px;
+  padding-top: 9px;
+  height: 350px; 
+
+}
+.column8 img{
+  width: 100%;
+  height: 350px;
+
+}
+.column9{
+  float: right;
+  width: 25%;
+  margin-right: 10px;
+  padding: 0.1px;
+  padding-top: 9px;
+  height: 350px; 
+
+}
+.column9 img{
+  width: 100%;
+  height: 350px;
+
+}
+.column10{
+  float: left;
+  width: 22%;
+  margin-left: 0px;
+  padding: 0.1px;
+  padding-top: 9px;
+  height: 350px; 
+
+}
+.column10 img{
+  width: 100%;
+  height: 350px;
+
+}
+
+/*championship*/
+.images1{
+  max-width: 1200px;
+  margin: auto;
+  background: transparent;
+  overflow: auto;
+}
+.gallery1{
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 290px;
+}
+.gallery1 img{
+  width: 100%;
+  height: 300px;
+}
+
+.desc1{
+  padding: 15px;
+  text-align: center;
+  color: white;
+}
+
+#showshistory{
+  margin-top: 45px;
+}
+#showshistory h1{
+  text-align: center;
+
+}
+
+
+
